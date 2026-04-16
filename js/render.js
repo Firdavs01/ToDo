@@ -1,12 +1,12 @@
 "use strict";
 
-import { tasks } from "./structure.js";
+import { saveTasks } from "./localeStorage.js";
 import { displayListElement } from "./elements.js";
 
-function render() {
+function render(saveElemnts = []) {
   displayListElement.innerHTML = ``;
 
-  tasks.forEach((task) => {
+  saveElemnts.forEach((task) => {
     const li = document.createElement("li");
     const delBtn = document.createElement('button');
     delBtn.classList.add('delete__btn');
@@ -20,13 +20,14 @@ function render() {
 
     delBtn.addEventListener("click", () => {
 
-      const index = tasks.findIndex(t => t.id === task.id)
+      const index = saveElemnts.findIndex(t => t.id === task.id)
 
       if (index !== -1) {
-        tasks.splice(index, 1)
+        saveElemnts.splice(index, 1)
+        saveTasks(saveElemnts)
       }
 
-      render()
+      render(saveElemnts)
     })
     
     li.appendChild(delBtn)
