@@ -9,14 +9,18 @@ function render(saveElemnts = []) {
   saveElemnts.forEach((task) => {
     const li = document.createElement("li");
     const delBtn = document.createElement('button');
+    const completedBtn = document.createElement('button');
     delBtn.classList.add('delete__btn');
     delBtn.textContent = "delete";
+    completedBtn.textContent = 'X'
 
     li.textContent = task.value
 
-    if (task.completed) {
+    
+    completedBtn.addEventListener("click", () => {
       li.classList.add('completed')
-    }
+      task.completed = true
+    })
 
     delBtn.addEventListener("click", () => {
 
@@ -31,6 +35,7 @@ function render(saveElemnts = []) {
     })
     
     li.appendChild(delBtn)
+    li.appendChild(completedBtn)
     displayListElement.appendChild(li)
   });
 }
