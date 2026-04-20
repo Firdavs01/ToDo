@@ -15,11 +15,15 @@ function render(saveElemnts = []) {
     completedBtn.textContent = 'X'
 
     li.textContent = task.value
+    if (task.completed) {
+      li.classList.add('completed')
+    }
 
     
     completedBtn.addEventListener("click", () => {
       li.classList.add('completed')
       task.completed = true
+      saveTasks(saveElemnts)
     })
 
     delBtn.addEventListener("click", () => {
