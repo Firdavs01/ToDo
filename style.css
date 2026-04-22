@@ -44,6 +44,7 @@ body {
   border: none;
   border-radius: 10px;
   padding: 14px 20px;
+  margin-bottom: 10px;
   font-family: 'Syne', sans-serif;
   font-weight: 700;
   font-size: 13px;
@@ -68,6 +69,8 @@ body {
   border-radius: 10px;
   padding: 14px 16px;
   animation: slideIn 0.25s ease;
+  display: flex;
+  gap: 5px;
 }
 
 @keyframes slideIn {

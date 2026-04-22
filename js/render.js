@@ -11,7 +11,7 @@ function render(saveElemnts = []) {
     const delBtn = document.createElement('button');
     const completedBtn = document.createElement('button');
     delBtn.classList.add('delete__btn');
-    delBtn.textContent = "delete";
+    delBtn.textContent = "D";
     completedBtn.textContent = 'X'
 
     li.textContent = task.value
